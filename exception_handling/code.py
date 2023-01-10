@@ -46,6 +46,77 @@ def find_max_index(data):
 
 index = find_max_index(list_data)
 
-print(index)
+# print(index)
 
-print(list_data[index])
+# print(list_data[index])
+
+
+# def scale(data, factor):
+#     for j in range(len(data)):
+#         data[j] *= factor
+#     return data
+
+
+list2_data = [2, 3, 4, 1, 2]
+
+# print(list2_data)
+# print(scale(list2_data, 2))
+# print(list2_data)
+# print("a", "b", "c", sep=":")
+
+
+def scale(data, factor):
+    """_Multiply all entries of numeric data by the given factor_
+
+    Args:
+        data (iterable sequence): an instance of any sequence type (such as a list)
+        containig numeric elements
+
+        factor (int): a number that servers as the multiplicative factor for scaling
+
+    Returns:
+        list: a new list that contain the
+    """
+
+    for j in range(len(data)):
+        data[j] *= factor
+    return data
+
+
+list = [2, 2, 2, 2]
+data = {"one": 1, "two": 2, "three": 3, "four": 4}
+# print(scale(list, 4))
+
+
+# i = iter(data)
+
+# print(i.next())
+
+
+def factors(n):
+    results = []
+    for j in range(1, n + 1):
+        if n % j == 0:
+            results.append(j)
+    return results
+
+
+# print(factors(200))
+
+
+def factor2(n):
+    for j in range(1, n + 1):
+        if n % j == 0:
+            yield j
+
+
+# first = factor2(20)
+
+# print(first)
+
+# it_list = ["one", "two", "three"]
+# it = iter(it_list)
+
+# print(next(it))
+# print(next(it))
+# print(next(it))
