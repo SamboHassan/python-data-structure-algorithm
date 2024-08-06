@@ -110,13 +110,13 @@ def factor2(n):
             yield j
 
 
-# first = factor2(20)
+first = factor2(20)
 
-# print(first)
+print(first)
 
-# it_list = ["one", "two", "three"]
-# it = iter(it_list)
+it_list = ["one", "two", "three"]
+it = iter(it_list)
 
-# print(next(it))
-# print(next(it))
-# print(next(it))
+print(next(it))
+print(next(it))
+print(next(it))
