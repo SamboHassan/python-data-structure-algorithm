@@ -26,15 +26,42 @@ def sum_of_prefix_sum(S):
     return total
 
 
+def list_of_prefix(S):
+    n = len(S)
+    prefix = 0
+    prefix_list = []
+    for j in range(n):
+        prefix += S[j]
+        prefix_list.append(prefix)
+    return prefix_list
+
+
 from itertools import accumulate
 
 seq = [1, 2, 3, 4, 5]
-print(sum_of_prefix_sum(seq))
-print(sum(accumulate(seq)))
-print()
+# print(sum_of_prefix_sum(seq))
+# print(sum(accumulate(seq)))
+# print()
 # Prefix sum
 a = [1, 2, 3, 4, 5]
 b = [1, 3, 6, 10, 15]
 
-for n in accumulate(a):
-    print(n)
+# for n in accumulate(a):
+#     print(n)
+
+# print()
+# print(list_of_prefix(a))
+scores = {
+    "Ahmed": 40,
+    "Marya": 67,
+    "Haladu": 30,
+    "Jamelu": 90,
+    "Bukar": 109,
+    "Musa": 70,
+}
+
+high = {
+    key: scores[key] for key in scores.keys() if scores[key] == max(scores.values())
+}
+
+print(high)
