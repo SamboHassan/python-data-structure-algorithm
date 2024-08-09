@@ -10,7 +10,7 @@ items["error"] = ValueError  # Add an exception type
 nums = [1, 2, 3, 4]
 items["append"] = nums.append  # Add a method of another object
 
-# print(items["mod"].sqrt(4))
+print(items["mod"].sqrt(4))
 
 line = "GOOGLE,100,490.10"
 field_types = [str, int, float]
