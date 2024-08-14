@@ -16,5 +16,18 @@ def factorial_iterative(num):
     return f
 
 
-y = factorial_iterative(4)
+def factorial_recursive(n):
+    if type(n) is not int:
+        return None
+    if n < 0:
+        return None
+    if n == 0:
+        return 1
+
+    return n * factorial_recursive(n - 1)
+
+
+x = factorial_iterative(4)
+y = factorial_recursive(4)
+print(x)
 print(y)
