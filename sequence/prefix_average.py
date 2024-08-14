@@ -10,3 +10,7 @@ def prefix_average1(S):
             total += S[i]
         A[j] = total / (j + 1)
     return A
+
+
+shares = [2, 3, 4, 5, 6]
+print(prefix_average1(shares))
