@@ -55,15 +55,19 @@ import math
 
 
 def calc_square_root(num):
+    if not isinstance(num, (int, float)):
+        raise TypeError("Number must be numeric")
     if num < 0:
         raise ValueError("Number must be non-negative")
     return math.sqrt(num)
 
 
 try:
-    print(calc_square_root(-10))
-except ValueError as e:
-    print(e)  # Prints 'Number must be non-negative'
+    print(calc_square_root(-3))
+except TypeError as t:
+    print(t)
+except ValueError as v:
+    print(v)  # Prints 'Number must be non-negative'
 
 
 # ------------------ TypeError
