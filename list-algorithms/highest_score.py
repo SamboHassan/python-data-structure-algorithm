@@ -58,7 +58,7 @@ class Scoreboard:
 
     def __str__(self):
         """Return string representation of the high score list."""
-        return "\n".join(str(self._board[j]) for j in range(self._n))
+        return "\n".join(str(self._board[j]) for j in range(self._n))  # List of tuple
 
     def add(self, entry):
         """Consider adding entry to high scores."""
@@ -66,11 +66,13 @@ class Scoreboard:
 
         # Does new entry qualify as a high score?
         # answer is yes if board not full or score is higher than last entry
+        # self._n is the current number of entries on the
+        # board (or the position we are managing up to).
         good = self._n < len(self._board) or score > self._board[-1].get_score()
 
         if good:
             if self._n < len(self._board):  # no score drops from list
-                self._n += 1  # so overall number increases
+                self._n += 1  # so overall current/actual number entries increases
 
             # shift lower scores rightward to make room for new entry
             j = self._n - 1
@@ -99,8 +101,6 @@ if __name__ == "__main__":
         print()
 
 
-"""
-
 class GameEntry:
     def __init__(self, name, score):
         self._name = name
@@ -124,7 +124,12 @@ class Scoreboard:
     def __getitem__(self, k):
         return self._board[k]
 
+    # In Python, the __str__ method is a special method that returns
+    # a string representation of an object.
+
     def __str__(self):
+        # This part is a generator expression, which generates a sequence of
+        # strings to be joined.
         return "\n".join(str(self._board[j]) for j in range(self._n))
 
     def add(self, entry):
@@ -137,6 +142,7 @@ class Scoreboard:
 
         j = self._n - 1
         while j > 0 and self._board[j - 1].get_score() < score:
+            # shifts each element to the right by one position
             self._board[j] = self._board[j - 1]
             j -= 1
         self._board[j] = entry
@@ -161,6 +167,3 @@ if __name__ == "__main__":
         print("After considering {0}, scoreboard is:".format(ge))
         print(board)
         print()
-
-
-"""
