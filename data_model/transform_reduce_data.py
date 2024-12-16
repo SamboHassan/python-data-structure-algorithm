@@ -26,6 +26,6 @@ portfolio = [
     {"name": "AOL", "shares": 20},
     {"name": "SCOX", "shares": 65},
 ]
-# Using gerator expressions
+# Using gerator expression
 min_shares = min(s["shares"] for s in portfolio)
 print(min_shares)
