@@ -1,15 +1,22 @@
-In Python 3.X there are three string types: str is used for Unicode text (including
-ASCII), bytes is used for binary data (including encoded text), and bytearray is a
-mutable variant of bytes. Files work in two modes: text, which represents content
-as str and implements Unicode encodings, and binary, which deals in raw bytes
-and does no data translation.
+"""
+In Python 3.X there are three string types:
+
+str is used for Unicode text (including ASCII), 
+bytes is used for binary data (including encoded text), and 
+bytearray is a mutable variant of bytes. 
+
+Files work in two modes: text, which represents content as str and implements Unicode 
+encodings, and binary, which deals in raw bytes and does no data translation.
+
+"""
 
 
-n—once text is in memory, it’s a Python string
-of characters that supports all the basics we’ll study in this chapter. In fact, the primary
+"""
+Once text is in memory, it’s a Python string of characters that supports all the basics we’ll study in this chapter. In fact, the primary
 distinction of Unicode often lies in the translation (a.k.a. encoding) step required to
 move it to and from files. Beyond that, it’s largely just string processing.
 
+"""
 
 String Basics
 From a functional perspective, strings can be used to represent just about anything that
