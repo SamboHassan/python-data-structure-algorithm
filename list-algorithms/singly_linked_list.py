@@ -24,10 +24,24 @@ class LinkedList(object):
     def get_count(self):
         return self.count
 
-    def insert(self, data):
+    def insertFirst(self, data):
         node = Node(data)
         node.set_next(self.head)
         self.head = node
+        self.count += 1
+
+    def insertLast(self, data):
+        node = Node(data)
+        if self.head is None:
+            # If the list is empty, insert at head
+            self.head = node
+        else:
+            current = self.head
+            # Traverse to the last node
+            while current.get_next() is not None:
+                current = current.get_next()
+            current.set_next(node)
+
         self.count += 1
 
     def insertAt(self, position, data):
@@ -74,6 +88,28 @@ class LinkedList(object):
                 tempidx += 1
             node.set_next(node.get_next().get_next())
             self.count -= 1
+
+    def delete2(self, position):
+        # Check if the position is valid
+        if position < 1 or position > self.count:
+            raise IndexError("Invalid position")
+
+        # If deleting the first node
+        if position == 1:
+            self.head = self.head.next
+        else:
+            previous = self.head
+            count = 1
+
+            # Traverse to the node just before the one to delete
+            while count < position - 1:
+                previous = previous.next
+                count += 1
+
+            current = previous.next
+            previous.next = current.next
+
+        self.count -= 1
 
     def dump_list(self):
         if self.head == None:
