@@ -30,6 +30,28 @@ class LinkedList(object):
         self.head = node
         self.count += 1
 
+    def insertAt(self, position, data):
+        if position < 1 or position > self.count + 1:
+            raise IndexError("Invalid position")
+
+        node = Node(data)
+        # Insert at the head (position 1)
+        if position == 1:
+            node.set_next(self.head)
+            self.head = node
+        else:
+            current = self.head
+            count = 1
+
+            while count < position - 1:
+                current = current.get_next()
+                count += 1
+
+            node.set_next(current.get_next())
+            current.set_next(node)
+
+        self.count += 1
+
     def find(self, data):
         tempnode = self.head
         while tempnode != None:
