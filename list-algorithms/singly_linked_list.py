@@ -1,5 +1,5 @@
 class Node(object):
-    def __init__(self, data):
+    def __init__(self, data, next=None):
         self.data = data
         self.next = next
 
@@ -75,19 +75,39 @@ class LinkedList(object):
                 tempnode = tempnode.get_next()
         return None
 
+        # WRONG
+
+    # def deleteAt(self, idx):
+    #     if idx > self.count:
+    #         return
+    #     if self.head == None:
+    #         return
+    #     else:
+    #         node = self.head
+    #         tempidx = 0
+    #         while tempidx < idx - 1:
+    #             node = node.get_next()
+    #             tempidx += 1
+    #         node.set_next(node.get_next().get_next())
+    #         self.count -= 1
+
     def deleteAt(self, idx):
-        if idx > self.count:
+        if idx < 1 or idx > self.count:
+            raise IndexError("Invalid index")
+        if self.head is None:
             return
-        if self.head == None:
-            return
+
+        if idx == 1:
+            self.head = self.head.get_next()
         else:
             node = self.head
-            tempidx = 0
+            tempidx = 1
             while tempidx < idx - 1:
                 node = node.get_next()
                 tempidx += 1
             node.set_next(node.get_next().get_next())
-            self.count -= 1
+
+        self.count -= 1
 
     def delete2(self, position):
         # Check if the position is valid
@@ -111,22 +131,29 @@ class LinkedList(object):
 
         self.count -= 1
 
+    # def dump_list(self):
+    #     if self.head == None:
+    #         return
+    #     tempnode = self.head
+    #     while tempnode != None:
+    #         print("Node: ", tempnode.get_data())
+    #         tempnode = tempnode.get_next()
+
+    # More pythonic version
     def dump_list(self):
-        if self.head == None:
-            return
         tempnode = self.head
-        while tempnode != None:
-            print("Node: ", tempnode.get_data())
+        while tempnode:
+            print("Node:", tempnode.get_data())
             tempnode = tempnode.get_next()
 
 
 itemlist = LinkedList()
 
-itemlist.insert(12)
-itemlist.insert(13)
-itemlist.insert(14)
-itemlist.insert(15)
-itemlist.insert(20)
+itemlist.insertLast(12)
+itemlist.insertLast(13)
+itemlist.insertLast(14)
+itemlist.insertFirst(15)
+itemlist.insertFirst(20)
 itemlist.dump_list()
 
 print("Before deletion", itemlist.get_count())
@@ -136,3 +163,5 @@ print()
 print(itemlist.deleteAt(2))
 itemlist.dump_list()
 print("After deletion", itemlist.get_count())
+
+# Help me debug this code
